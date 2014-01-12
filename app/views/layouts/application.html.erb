@@ -9,9 +9,8 @@
 <body>
 	<div style="float:right">
 	<% if user_signed_in? %>
-		<% binding.pry %>
 		<li><%= link_to current_user.email, current_user %></li>
-		<li><%= link_to "Logout", destroy_user_session_path %></li>
+		<li><%= link_to "Logout", destroy_user_session_path,:method => :delete  %></li>
 	<% else %>
 		<li><%= link_to "Sign in", new_user_session_path %></li>
 	<% end %>
