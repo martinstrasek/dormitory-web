@@ -1,7 +1,7 @@
 dormitory-web
 =============
 
-== TODO
+TODO
 
 	pozriet sa ci sa do disqus-u moze prihlasit uzivatel zo serveru
 		nasiel som gem https://github.com/missiondata/disqus
@@ -60,6 +60,6 @@ dormitory-web
 	stena podobna facebooku s roznymi oddeleniami: inzercia, party, poziciavanie,spam,
 		riesit to stromovo?
 		najst gem
-		
+
 	vzhlad
 		bootstrap vs zurb
