@@ -60,3 +60,6 @@ dormitory-web
 	stena podobna facebooku s roznymi oddeleniami: inzercia, party, poziciavanie,spam,
 		riesit to stromovo?
 		najst gem
+		
+	vzhlad
+		bootstrap vs zurb
