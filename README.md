@@ -48,6 +48,9 @@ TODO
 		autorizacia - https://github.com/ryanb/cancan
 		tuto: https://github.com/plataformatec/devise/wiki/Example-Applications
 
+		co znamena :dependent => :nullify ?
+		pridat meno a priezvisko do usera
+
 	novinky
 		scaffold, pridat autorizaciu
 
