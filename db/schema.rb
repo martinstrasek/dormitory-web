@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 20140129122455) do
 
   add_index "articles", ["user_id"], name: "index_articles_on_user_id"
 
+  create_table "authorizations", force: true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "token"
+    t.string   "secret"
+    t.string   "username"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
