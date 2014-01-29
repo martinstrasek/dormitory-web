@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>DormitoryWeb</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-	<div style="float:right">
-	<% if user_signed_in? %>
-		<li><%= link_to current_user.email, current_user %></li>
-		<li><%= link_to "Logout", destroy_user_session_path,:method => :delete  %></li>
-	<% else %>
-		<li><%= link_to "Sign in", new_user_session_path %></li>
-	<% end %>
-</div>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<%= yield %>
-
-</body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Dormitory Web" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Dormitory Web" %>">
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+      <%= render 'layouts/navigation' %>
+    </header>
+    <main role="main">
+       <div class="container">
+        <%= render 'layouts/messages' %>
+        <%= yield %>
+      </div>
+    </main>
+  </body>
 </html>

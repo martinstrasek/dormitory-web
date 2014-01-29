@@ -48,3 +48,11 @@ gem 'thin', group: :development
 gem 'pry', group: [:development, :test]
 
 gem 'devise'
+
+gem 'bootstrap-sass'
+
+group :development do
+	gem 'rails_layout'
+end
+
+gem 'simple_form'
