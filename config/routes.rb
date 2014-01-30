@@ -6,7 +6,7 @@ DormitoryWeb::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
-  devise_for :users, :articles
+  devise_for :users, :articles, controllers: {omniauth_callbacks: "omniauth_callbacks"}
   resources :users#, :only => :show
 
   # Example of regular route:
