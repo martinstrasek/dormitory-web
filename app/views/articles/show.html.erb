@@ -10,7 +10,12 @@
 </p>
 
 <p>
-  <strong>User:</strong>
+  <strong>Category:</strong>
+  <%= @article.category.name unless @article.category.nil? %>
+</p>
+
+<p>
+  <strong>Author:</strong>
   <%= @article.user.email %>
 </p>
 
