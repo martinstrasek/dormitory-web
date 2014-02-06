@@ -5,7 +5,8 @@ class Ability
     # Define abilities for the passed in user here. For example:
     #
     if user
-        can :manage, Article, :user_id => user.id   
+        can :manage, Article, :user_id => user.id
+        can :read, Article
     end
     user ||= User.new # guest user (not logged in)
     #   if user.admin?
