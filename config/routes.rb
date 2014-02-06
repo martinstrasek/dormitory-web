@@ -9,6 +9,9 @@ DormitoryWeb::Application.routes.draw do
   root 'home#index'
   devise_for :users, :articles, controllers: {omniauth_callbacks: "omniauth_callbacks"}
   resources :users#, :only => :show
+  # scope :path => "admin" do
+  #   resources :articles
+  # end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
