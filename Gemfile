@@ -48,6 +48,7 @@ gem 'thin', group: :development
 gem 'pry', group: [:development, :test]
 
 gem 'devise'
+gem 'cancan'
 
 gem 'bootstrap-sass'
 
