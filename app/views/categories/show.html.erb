@@ -1,0 +1,14 @@
+<div class="category">
+<p>
+  <strong>Name:</strong>
+  <%= @category.name %>
+</p>
+
+<p>
+  <strong>Parent category:</strong>
+  <%= @categories[@categories.index{ |cat| cat.id == @category.parent_id }].name unless @category.parent_id.nil? %>
+</p>
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>
+</div>

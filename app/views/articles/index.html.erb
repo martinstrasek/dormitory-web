@@ -5,6 +5,7 @@
     <tr>
       <th>Title</th>
       <th>Body</th>
+      <th>Category</th>
       <th>Author</th>
       <th>Published</th>
       <th></th>
@@ -18,6 +19,7 @@
       <tr>
         <td><%= article.title %></td>
         <td><%= article.body %></td>
+        <td><%= article.category.name unless article.category.nil? %></td>
         <td><%= article.user.email %></td>
         <td><%= article.published %></td>
         <td><%= link_to 'Show', article %></td>
