@@ -11,6 +11,9 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+    #binding.pry
+    @article.category.ancestors.reverse_each { |a| add_breadcrumb a.name,"/" }
+    add_breadcrumb @article.category.name,"/"
   end
 
   # GET /articles/new
