@@ -1,0 +1,27 @@
+<div class="bs-sidebar hidden-print" role="complementary">
+	<ul class="nav bs-sidenav">
+	<% @menu_items.each do |menu_item| %>
+	<% if menu_item.parent.nil? %>
+		<% if menu_item.subcategories.nil? %>
+			<li><%= link_to menu_item.name, menu_item %></li>
+		<% else %>
+			<li><%= link_to menu_item.name, menu_item %>
+				<ul class="nav">
+				<% menu_item.subcategories.each do |submenu_item| %>
+					<li><%= link_to submenu_item.name, submenu_item %>
+						<% unless submenu_item.subcategories.nil? %>
+						<ul class="nav">
+						<% submenu_item.subcategories.each do |subsubmenu_item| %>
+							<li><%= link_to subsubmenu_item.name, subsubmenu_item %></li>
+						<% end %>
+						</ul>
+						<% end %>
+					</li>
+				<% end %>
+				</ul>
+			</li>
+		<% end %>
+	<% end %>
+	<% end %>
+	</ul>
+</div>
