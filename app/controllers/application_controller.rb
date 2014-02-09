@@ -10,4 +10,13 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception| #https://github.com/ryanb/cancan/wiki/Exception-Handling
     redirect_to main_app.root_url, :alert => exception.message
   end
+
+  before_filter :fetch_menu_items
+
+  protected
+
+  def fetch_menu_items
+    @menu_items = Category.all
+  end
+
 end

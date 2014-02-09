@@ -1,3 +1,8 @@
 <%# add navigation links to this file %>
 <li><%= link_to "Articles", articles_path %></li>
 
+<% @menu_items.each do |menu_item| %>
+	<% if menu_item.parent.nil? %>
+		<li><%= link_to menu_item.name, menu_item %></li>
+	<% end %>
+<% end %>
