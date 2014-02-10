@@ -63,3 +63,5 @@ gem 'quiet_assets', :group => :development
 gem 'koala'
 gem 'omniauth'
 gem 'omniauth-facebook', '1.4.0'
+
+gem 'bootsy'

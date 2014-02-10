@@ -13,10 +13,12 @@
 <%= link_to 'Back', categories_path %>
 
 <% @category.articles.each do |article| %>
+	<% if article.published %>
 	<div class="panel">
 		<h2><%= article.title %></h2>
-		<p><%= article.body %></p>
+		<p><%= article.body.html_safe %></p>
 	</div>
+	<% end %>
 <% end %>
 
 </div>
