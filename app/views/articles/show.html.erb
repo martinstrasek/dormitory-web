@@ -1,29 +1,15 @@
 <div class="article">
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
 
-<p>
-  <strong>Body:</strong>
-  <%= @article.body %>
-</p>
+<div class="panel panel-default">
+    <h2><%= @article.title %></h2>
+    <p><%= @article.body.html_safe %></p>
+    <br />
+    <p class="text-right text-muted"><small><em>Updated at: <%= @article.updated_at%>, by <%= @article.user.email %></em></small></p>
+</div>
 
-<p>
-  <strong>Category:</strong>
-  <%= @article.category.name unless @article.category.nil? %>
-</p>
+<div class="btn-group">
+  <%= link_to 'Edit', edit_article_path(@article), { :class=>"btn btn-success"} %>
+  <%= link_to 'Back', articles_path, { :class=>"btn btn-default"} %>
+</div>
 
-<p>
-  <strong>Author:</strong>
-  <%= @article.user.email %>
-</p>
-
-<p>
-  <strong>Published:</strong>
-  <%= @article.published %>
-</p>
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
 </div>

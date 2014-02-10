@@ -9,6 +9,7 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+  <div id="wrap">
     <header>
       <%= render 'layouts/navigation' %>
     </header>
@@ -27,11 +28,18 @@
             <%= render 'layouts/sidebar' %>
           </div>
         </div>
-      
-        <footer>
-          pokus
-        </footer>
+      </div>
+        
 
     </main>
+  </div>
+
+    <div id="footer">
+      <div class="container">
+        <p>&copy; Dormitory Web</p>
+      </div>
+    </div>
+
+    
   </body>
 </html>

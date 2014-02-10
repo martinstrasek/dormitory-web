@@ -3,7 +3,8 @@
   <h1><%= @category.name %></h1>
   
 </p>
-
+<br />
+<!--
 <p>
   <strong>Parent category:</strong>
   <%= @categories[@categories.index{ |cat| cat.id == @category.parent_id }].name unless @category.parent_id.nil? %>
@@ -11,12 +12,16 @@
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>
-
+-->
 <% @category.articles.each do |article| %>
+	<% if article.published %>
 	<div class="panel panel-default">
-		<h2><%= article.title %></h2>
-		<p><%= article.body %></p>
+		<h2><%= article.title %> <small><%= link_to '<span class="glyphicon glyphicon-edit"></span> Edit'.html_safe, edit_article_path(article) %></small></h2>
+		<p><%= article.body.html_safe %></p>
+		<br />
+		<p class="text-right text-muted"><small><em>Updated at: <%= article.updated_at%>, by <%= article.user.email %></em></small></p>
 	</div>
+	<% end %>
 <% end %>
 
 </div>
