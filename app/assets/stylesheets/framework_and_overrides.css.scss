@@ -33,10 +33,11 @@ img {
 // to make views framework-neutral
 main {
   @extend .container;
-  //background-color: #eee;
-  //padding-bottom: 80px;
-  //width: 100%;
+  
+  padding-bottom: 25px;
+  width: 100%;
   padding-top: 70px; // accommodate the navbar
+
   }
 section {
   @extend .row;
@@ -47,7 +48,7 @@ section {
 }
 
 .form-actions {
-  margin-top: 15px;
+  margin-top: 5px;
 }
 
 .sidebar {
@@ -66,6 +67,7 @@ body {
 }
 body {
   //padding-top: 70px;
+  background-color: #eee;
 }
 footer {
   padding: 30px 0;
@@ -215,4 +217,22 @@ footer {
 
 textarea.form-control {
   height: 320px;
+}
+
+.help-inline {
+  @extend .help-block;
+  color: red;
+}
+
+.control-group {
+  padding-bottom: 10px;
+}
+
+.panel-default {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+div.category h2, div.article h2 {
+  margin-bottom: 15px;
 }
