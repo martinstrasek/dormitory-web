@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
+    add_breadcrumb "Articles",articles_path
     @articles = Article.all
   end
 
@@ -11,8 +12,14 @@ class ArticlesController < ApplicationController
   # GET /articles/1.json
   def show
     #binding.pry
-    @article.category.ancestors.reverse_each { |a| add_breadcrumb a.name,"/" }
-    add_breadcrumb @article.category.name,"/"
+    add_breadcrumb "Articles",articles_path
+    cat=@article.category
+    if cat
+      cat.ancestors.reverse_each { |a| add_breadcrumb a.name,category_path(a) }
+      add_breadcrumb cat.name,category_path(cat)
+    end
+    add_breadcrumb @article.title,article_path
+    #ASK how to make this more DRY
   end
 
   # GET /articles/new
