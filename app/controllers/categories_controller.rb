@@ -5,12 +5,16 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
+    add_breadcrumb "Categories",categories_path
     @categories = Category.all
   end
 
   # GET /categories/1
   # GET /categories/1.json
   def show
+    add_breadcrumb "Categories",categories_path
+    @category.ancestors.reverse_each { |a| add_breadcrumb a.name,category_path(a) }
+    add_breadcrumb @category.name,category_path
     @categories = Category.all
   end
 
