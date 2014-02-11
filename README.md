@@ -66,3 +66,7 @@ TODO
 
 	vzhlad
 		bootstrap vs zurb
+
+	/users/
+		zakazat index?
+		ukazat aktivitu v show
