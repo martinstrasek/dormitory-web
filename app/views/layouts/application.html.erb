@@ -15,7 +15,9 @@
     </header>
     <main role="main">
        <div class="container">
-        <%= render_breadcrumbs %>
+        <ol class="breadcrumb">
+          <%= render_breadcrumbs :tag => :li, :separator => "" %>
+        </ol>
         <%= render 'layouts/messages' %>
         <div class="row row-offcanvas row-offcanvas-right">
           <div class="col-xs-12 col-sm-9">
