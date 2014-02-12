@@ -9,7 +9,7 @@ class CalendarController < ApplicationController
 
     @event_strips = Event.event_strips_for_month(@shown_month)
 
-    @nearest_events = Event.find(:all, :conditions => ['start_at >= ?', Date.today], :limit => 5, :order => "start_at DESC")
+    @nearest_events = Event.find(:all, :conditions => ['start_at >= ?', Date.today], :order => "start_at", :limit => 5)
   end
   
 end
