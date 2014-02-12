@@ -24,11 +24,15 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
+    add_breadcrumb "Articles",articles_path
+    add_breadcrumb "New Article"
     @article = Article.new
   end
 
   # GET /articles/1/edit
   def edit
+    add_breadcrumb "Articles",articles_path
+    add_breadcrumb "Edit Article"
     #@article = current_user.articles.find(params[:id])
   end
 

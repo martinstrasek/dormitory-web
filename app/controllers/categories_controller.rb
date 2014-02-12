@@ -21,13 +21,16 @@ class CategoriesController < ApplicationController
 
   # GET /categories/new
   def new
+    add_breadcrumb "Categories",categories_path
+    add_breadcrumb "New Category"
     @category = Category.new
     @category.parent = Category.find(params[:id]) unless params[:id].nil?
   end
 
   # GET /categories/1/edit
   def edit
-    
+    add_breadcrumb "Categories",categories_path
+    add_breadcrumb "Edit Category"
   end
 
   # POST /categories

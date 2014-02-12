@@ -4,21 +4,28 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
+    add_breadcrumb "Events",events_path
     @events = Event.all
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
+    add_breadcrumb "Events",events_path
+    add_breadcrumb "Show Event"
   end
 
   # GET /events/new
   def new
+    add_breadcrumb "Events",events_path
+    add_breadcrumb "New Event"
     @event = Event.new
   end
 
   # GET /events/1/edit
   def edit
+    add_breadcrumb "Events",events_path
+    add_breadcrumb "Edit Event"
   end
 
   # POST /events
