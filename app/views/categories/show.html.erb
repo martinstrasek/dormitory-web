@@ -16,7 +16,11 @@
 <% @category.articles.each do |article| %>
 	<% if article.published %>
 	<div class="panel panel-default">
-		<h2><%= article.title %> <small><%= link_to '<span class="glyphicon glyphicon-edit"></span> Edit'.html_safe, edit_article_path(article) %></small></h2>
+		<h2><%= article.title %> </h2>
+		<% if can? :manage, article %>
+			<small><%= link_to '<span class="glyphicon glyphicon-edit"></span> Edit'.html_safe, edit_article_path(article) %>
+			</small>
+		<% end %>
 		<p><%= article.body.html_safe %></p>
 		<br />
 		<p class="text-right text-muted"><small><em>Updated at: <%= article.updated_at%>, by <%= article.user.email %></em></small></p>
