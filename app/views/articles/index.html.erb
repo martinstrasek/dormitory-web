@@ -20,9 +20,14 @@
         <td><%= article.category.name unless article.category.nil? %></td>
         <td><%= article.user.email %></td>
         <td><%= article.published %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to '<span class="glyphicon glyphicon-edit"></span> Edit'.html_safe, edit_article_path(article) %></td>
-        <td><%= link_to '<span class="glyphicon glyphicon-remove"></span> Remove'.html_safe, article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if can? :read, article %>
+          <td><%= link_to 'Show', article %></td>
+        <% end %>
+
+        <% if can? :manage, article %>
+          <td><%= link_to '<span class="glyphicon glyphicon-edit"></span> Edit'.html_safe, edit_article_path(article) %></td>
+          <td><%= link_to '<span class="glyphicon glyphicon-remove"></span> Remove'.html_safe, article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
