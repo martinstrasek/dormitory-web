@@ -1,0 +1,32 @@
+<h1>Listing events</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Start at</th>
+      <th>End at</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.name %></td>
+        <td><%= event.start_at %></td>
+        <td><%= event.end_at %></td>
+        <td><%= link_to 'Show', event %></td>
+        <td><%= link_to '<span class="glyphicon glyphicon-edit"></span> Edit'.html_safe, edit_event_path(event) %></td>
+        <td><%= link_to '<span class="glyphicon glyphicon-remove"></span> Remove'.html_safe, event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Event', new_event_path, { :class=>"btn btn-primary"} %>
+<%= link_to 'Show Calendar', calendar_path, { :class=>"btn btn-success  "} %>

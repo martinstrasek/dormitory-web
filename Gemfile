@@ -67,3 +67,5 @@ gem 'omniauth-facebook', '1.4.0'
 gem 'breadcrumbs_on_rails'
 
 gem 'bootsy'
+
+gem 'event-calendar', :require => 'event_calendar'

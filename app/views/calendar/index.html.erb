@@ -1,0 +1,10 @@
+<!-- Probably move the stylesheet to you layout. Also make sure you include the javascript. -->
+<%= stylesheet_link_tag "event_calendar" %>
+
+<h1>Event Calendar</h1>
+
+<%= raw(event_calendar) %>
+
+<div class="calendar-btn">
+<%= link_to 'Create New Event', new_event_path, { :class=>"btn btn-primary"} %>
+</div>

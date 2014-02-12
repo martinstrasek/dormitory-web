@@ -1,6 +1,9 @@
 DormitoryWeb::Application.routes.draw do
   
 
+  resources :events
+
+  get '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   resources :articles do
     resources :comments, :only => :create
