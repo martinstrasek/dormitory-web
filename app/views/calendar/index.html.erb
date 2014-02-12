@@ -3,8 +3,26 @@
 
 <h1>Event Calendar</h1>
 
-<%= raw(event_calendar) %>
+<div class="panel panel-default">
+<h3>Nearest 5 Events</h3>
+<% if @nearest_events.count == 0 %>
+	<p>
+		<h4>No Events</h4>
+	</p>
+<% else %>
+<% @nearest_events.each do |ev| %>
+	<p>
+		<h4><%= ev.name %>, <small>start: <%= ev.start_at %></small></h4>
+		<%= link_to 'Show more', ev, { :class=>"btn btn-success btn-xs"} %>
+	</p>
+<% end %>
+<% end %>
+</div>
 
 <div class="calendar-btn">
 <%= link_to 'Create New Event', new_event_path, { :class=>"btn btn-primary"} %>
+<%= link_to 'Show List of All Events', events_path, { :class=>"btn btn-success"} %>
 </div>
+
+<%= raw(event_calendar) %>
+
