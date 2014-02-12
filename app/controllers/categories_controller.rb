@@ -16,6 +16,7 @@ class CategoriesController < ApplicationController
     @category.ancestors.reverse_each { |a| add_breadcrumb a.name,category_path(a) }
     add_breadcrumb @category.name,category_path
     @categories = Category.all
+    @comment = Comment.new
   end
 
   # GET /categories/new

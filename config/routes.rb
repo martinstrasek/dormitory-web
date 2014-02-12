@@ -1,6 +1,10 @@
 DormitoryWeb::Application.routes.draw do
+  
+
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
-  resources :articles
+  resources :articles do
+    resources :comments, :only => :create
+  end
   resources :categories
 
   # The priority is based upon order of creation: first created -> highest priority.

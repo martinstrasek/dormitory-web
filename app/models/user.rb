@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   
   has_many :articles, :dependent => :nullify
   has_many :authorizations
+  has_many :comments
 
   def self.new_with_session(params,session)
     if session["devise.user_attributes"]
