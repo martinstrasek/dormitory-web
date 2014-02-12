@@ -1,16 +1,25 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
   load_and_authorize_resource #cancan authorization
   # GET /articles
   # GET /articles.json
   def index
+    add_breadcrumb "Articles",articles_path
     @articles = Article.all
   end
 
   # GET /articles/1
   # GET /articles/1.json
   def show
+    #binding.pry
+    add_breadcrumb "Articles",articles_path
+    cat=@article.category
+    if cat
+      cat.ancestors.reverse_each { |a| add_breadcrumb a.name,category_path(a) }
+      add_breadcrumb cat.name,category_path(cat)
+    end
+    add_breadcrumb @article.title,article_path
+    #ASK how to make this more DRY
   end
 
   # GET /articles/new

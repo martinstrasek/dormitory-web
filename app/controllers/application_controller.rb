@@ -13,6 +13,8 @@ class ApplicationController < ActionController::Base
 
   before_filter :fetch_menu_items
 
+  add_breadcrumb "Home", :root_path
+
   protected
 
   def fetch_menu_items
