@@ -219,6 +219,10 @@ textarea.form-control {
   height: 320px;
 }
 
+.new-comment textarea.form-control {
+  height: auto;
+}
+
 .help-inline {
   @extend .help-block;
   color: red;
@@ -235,4 +239,10 @@ textarea.form-control {
 
 div.category h2, div.article h2 {
   margin-bottom: 15px;
+}
+
+.bg-info {
+  background-color: #f4f8fa;
+  padding: 10px;
+  border-left: 2px solid #5bc0de;
 }

@@ -20,6 +20,29 @@
 		<p><%= article.body.html_safe %></p>
 		<br />
 		<p class="text-right text-muted"><small><em>Updated at: <%= article.updated_at%>, by <%= article.user.email %></em></small></p>
+
+		<div class="comments-panel">
+			<h4>Comments (<%= article.comments.count %>)</h4>
+
+			<div class="comments">
+				<% article.comments.each do |comment| %>
+					<div class="comment">
+						<p class="bg-info">
+						<strong><em><%= comment.user.email %>: </em></strong>
+						<%= comment.body %>
+						</p>
+					</div>
+
+				<% end %>
+				<div class="new-comment">
+					<%= simple_form_for [article, Comment.new] do |f| %>
+						<%= f.input :body, label: false %>
+						<%= f.button :submit, 'Add Comment', :class=>"btn btn-primary" %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+
 	</div>
 	<% end %>
 <% end %>

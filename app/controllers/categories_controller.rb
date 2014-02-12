@@ -12,6 +12,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @categories = Category.all
+    @comment = Comment.new
   end
 
   # GET /categories/new
