@@ -103,6 +103,10 @@ GEM
     omniauth-oauth2 (1.0.3)
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
+    omniauth-vkontakte (1.0.6)
+      multi_json
+      omniauth (~> 1.0)
+      omniauth-oauth2 (~> 1.0)
     orm_adapter (0.5.0)
     polyglot (0.3.3)
     pry (0.9.12.4)
@@ -190,6 +194,7 @@ DEPENDENCIES
   koala
   omniauth
   omniauth-facebook (= 1.4.0)
+  omniauth-vkontakte
   pry
   quiet_assets
   rails (= 4.0.0)

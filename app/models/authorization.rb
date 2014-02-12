@@ -19,4 +19,8 @@ class Authorization < ActiveRecord::Base
 		#self.user.location = facebook_data['location']  rescue '' if self.user.location.blank?
 		self.user.save
 	end
+
+	def fetch_details_from_vkontakte
+		#binding.pry
+	end
 end
