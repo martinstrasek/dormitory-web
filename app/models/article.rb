@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  include Bootsy::Container
+  #include Bootsy::Container
 
   belongs_to :user
   belongs_to :category
