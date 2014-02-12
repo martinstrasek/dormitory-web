@@ -31,7 +31,6 @@ class User < ActiveRecord::Base
        user.username ||= auth.info.name
        user.email = auth.info.email
        auth.provider == "vkontakte" ?  user.save(:validate => false) :  user.save
-       binding.pry
      end
      authorization.username = auth.info.nickname
      authorization.user_id = user.id
