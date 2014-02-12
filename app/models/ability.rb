@@ -7,6 +7,7 @@ class Ability
     if user
         can :manage, Article, :user_id => user.id
         can :read, Article
+        cannot :article_set_published, Article
     else
         user ||= User.new # guest user (not logged in)
         can :read, Article
