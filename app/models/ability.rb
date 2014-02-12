@@ -8,6 +8,8 @@ class Ability
         can :manage, Article, :user_id => user.id
         can :read, Article
         cannot :article_set_published, Article
+
+        can [:read,:create], Comment
     else
         user ||= User.new # guest user (not logged in)
         can :read, Article

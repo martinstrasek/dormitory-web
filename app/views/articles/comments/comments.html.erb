@@ -1,0 +1,23 @@
+<div class="comments-panel">
+	<h4>Comments (<%= @article.comments.count %>)</h4>
+
+	<div class="comments">
+		<% @article.comments.each do |comment| %>
+			<div class="comment">
+				<p class="bg-info">
+				<strong><em><%= comment.user.username %>: </em></strong>
+				<%= comment.body %>
+				</p>
+			</div>
+
+		<% end %>
+		<% if can? :create,Comment %>
+		<div class="new-comment">
+			<%= simple_form_for [@article, Comment.new] do |f| %>
+				<%= f.input :body, label: false %>
+				<%= f.button :submit, 'Add Comment', :class=>"btn btn-primary" %>
+			<% end %>
+		</div>
+		<% end %>
+	</div>
+</div>

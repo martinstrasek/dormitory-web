@@ -3,16 +3,16 @@
 	<% @menu_items.each do |menu_item| %>
 	<% if menu_item.parent.nil? %>
 		<% if menu_item.subcategories.nil? %>
-			<li><%= link_to menu_item.name, menu_item %></li>
+			<li><%= link_to (menu_item.name + ' <span class="badge pull-right">' + menu_item.articles.count.to_s + '</span>').html_safe, menu_item %></li>
 		<% else %>
-			<li><%= link_to menu_item.name, menu_item %>
+			<li><%= link_to (menu_item.name + ' <span class="badge pull-right">' + menu_item.articles.count.to_s + '</span>').html_safe, menu_item %>
 				<ul class="nav">
 				<% menu_item.subcategories.each do |submenu_item| %>
-					<li><%= link_to submenu_item.name, submenu_item %>
+					<li><%= link_to (submenu_item.name + ' <span class="badge pull-right">' + submenu_item.articles.count.to_s + '</span>').html_safe, submenu_item %>
 						<% unless submenu_item.subcategories.nil? %>
 						<ul class="nav">
 						<% submenu_item.subcategories.each do |subsubmenu_item| %>
-							<li><%= link_to subsubmenu_item.name, subsubmenu_item %></li>
+							<li><%= link_to (subsubmenu_item.name + ' <span class="badge pull-right">' + subsubmenu_item.articles.count.to_s + '</span>').html_safe, subsubmenu_item %></li>
 						<% end %>
 						</ul>
 						<% end %>

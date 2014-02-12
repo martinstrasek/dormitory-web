@@ -219,7 +219,7 @@ textarea.form-control {
   height: 320px;
 }
 
-.new-comment textarea.form-control {
+.new-comment textarea.form-control, .event textarea.form-control {
   height: auto;
 }
 
@@ -245,4 +245,9 @@ div.category h2, div.article h2 {
   background-color: #f4f8fa;
   padding: 10px;
   border-left: 2px solid #5bc0de;
+}
+
+.calendar-btn {
+  margin-top: 15px;
+  margin-bottom: 15px;
 }

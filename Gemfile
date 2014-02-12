@@ -68,3 +68,5 @@ gem "omniauth-vkontakte"
 gem 'breadcrumbs_on_rails'
 
 gem 'bootsy'
+
+gem 'event-calendar', :require => 'event_calendar'

@@ -24,11 +24,15 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
+    add_breadcrumb "Articles",articles_path
+    add_breadcrumb "New Article"
     @article = Article.new
   end
 
   # GET /articles/1/edit
   def edit
+    add_breadcrumb "Articles",articles_path
+    add_breadcrumb "Edit Article"
     #@article = current_user.articles.find(params[:id])
   end
 
@@ -83,6 +87,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :body, :category_id, :published, :bootsy_image_gallery_id)
+      params.require(:article).permit(:title, :body, :category_id, :published)
     end
 end

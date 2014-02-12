@@ -4,7 +4,8 @@
     <h2><%= @article.title %></h2>
     <p><%= @article.body.html_safe %></p>
     <br />
-    <p class="text-right text-muted"><small><em>Updated at: <%= @article.updated_at%>, by <%= @article.user.email %></em></small></p>
+    <p class="text-right text-muted"><small><em>Updated at: <%= @article.updated_at%>, by <%= @article.user.username %></em></small></p>
+    <%= render template: 'articles/comments/comments' %>
 </div>
 
 <% if can? :manage, @article %>
