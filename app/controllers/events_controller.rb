@@ -1,11 +1,11 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource
   # GET /events
   # GET /events.json
   def index
     add_breadcrumb "Events",events_path
-    @events = Event.all
+    #@events = Event.all
   end
 
   # GET /events/1

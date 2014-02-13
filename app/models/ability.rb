@@ -6,8 +6,11 @@ class Ability
     #
     if user
         can :manage, Article, :user_id => user.id
-        can :read, Article
+        can :read, Article, :published => true
         cannot :article_set_published, Article
+
+        can :manage, Event, :user_id => user.id
+        can :read, Event
 
         can [:read,:create], Comment
     else

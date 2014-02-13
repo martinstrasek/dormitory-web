@@ -20,7 +20,9 @@
 </div>
 
 <div class="calendar-btn">
-<%= link_to 'Create New Event', new_event_path, { :class=>"btn btn-primary"} %>
+<% if can? :create,Event %>
+	<%= link_to 'Create New Event', new_event_path, { :class=>"btn btn-primary"} %>
+<% end %>
 <%= link_to 'Show List of All Events', events_path, { :class=>"btn btn-success"} %>
 </div>
 

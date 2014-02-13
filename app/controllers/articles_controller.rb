@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     add_breadcrumb "Articles",articles_path
-    @articles = Article.all
+    #@articles = Article.all #load_and_authorize should do that
   end
 
   # GET /articles/1
