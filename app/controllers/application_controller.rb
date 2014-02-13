@@ -1,8 +1,9 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+  before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter do #https://github.com/ryanb/cancan/issues/835
-	  resource = controller_name.singularize.to_sym
+    resource = controller_name.singularize.to_sym
 	  method = "#{resource}_params"
 	  params[resource] &&= send(method) if respond_to?(method, true)
   end
@@ -19,6 +20,10 @@ class ApplicationController < ActionController::Base
 
   def fetch_menu_items
     @menu_items = Category.all
+  end
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) << :username
   end
 
 end
