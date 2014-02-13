@@ -23,9 +23,29 @@ module DormitoryWeb
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
 
     social_keys = File.join(Rails.root, 'config', 'social_keys.yml')
-    CONFIG = HashWithIndifferentAccess.new(YAML::load(IO.read(social_keys)))[Rails.env]
-    CONFIG.each do |k,v|
+    if File.exists?(social_keys)
+        CONFIG = HashWithIndifferentAccess.new(YAML::load(IO.read(social_keys)))[Rails.env]
+        CONFIG.each do |k,v|
       ENV[k.upcase] ||= v
+    end
+    else
+        IO.write social_keys, <<-eos
+development:
+  facebook_key: "Enter your keys here. Check Read me file to know how to get keys"
+  facebook_secret: "Enter your keys here. Check Read me file to know how to get keys"
+
+  vkontakte_key: "Enter your keys here. Check Read me file to know how to get keys"
+  vkontakte_secret: "Enter your keys here. Check Read me file to know how to get keys"
+
+production:
+  facebook_key: "Enter your keys here. Check Read me file to know how to get keys"
+  facebook_secret: "Enter your keys here. Check Read me file to know how to get keys"
+
+  vkontakte_key: "Enter your keys here. Check Read me file to know how to get keys"
+  vkontakte_secret: "Enter your keys here. Check Read me file to know how to get keys"
+
+        eos
+        p "enter api keys to config/social_keys.yml"
     end
   end
 end
